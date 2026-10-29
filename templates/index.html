@@ -12,7 +12,9 @@
     nav a { display: inline-block; margin: 4px; padding: 10px 18px; background: #fff; color: #e10600; text-decoration: none; border-radius: 6px; font-weight: bold; }
     section { max-width: 1200px; margin: 30px auto; padding: 0 16px; }
     h2 { border-left: 6px solid #e10600; padding-left: 10px; }
-    tableau-viz { width: 100%; height: 850px; display: block; }
+    tableau-viz { width: 100%; height: 900px; display: block; background: #1b1b1b; }
+    .fallback { width: 100%; height: 900px; border: 0; background: #fff; display: block; }
+    .note { font-size: 14px; color: #bbb; margin: 6px 0 12px; }
     footer { text-align: center; padding: 20px; background: #000; }
     footer a { color: #ff6b66; }
   </style>
@@ -28,12 +30,14 @@
 
   <section id="dashboard">
     <h2>Interactive Dashboard</h2>
-    <tableau-viz src="{{ dashboard_url }}" toolbar="bottom" hide-tabs></tableau-viz>
+    <p class="note">Loading dashboard... if nothing appears, use the Tableau Public link below.</p>
+    <tableau-viz id="dashViz" src="{{ dashboard_url }}" device="desktop" width="100%" height="900" toolbar="bottom" hide-tabs></tableau-viz>
   </section>
 
   <section id="story">
     <h2>Data Story</h2>
-    <tableau-viz src="{{ story_url }}" toolbar="bottom" hide-tabs></tableau-viz>
+    <p class="note">Loading story... if nothing appears, use the Tableau Public link below.</p>
+    <tableau-viz id="storyViz" src="{{ story_url }}" device="desktop" width="100%" height="900" toolbar="bottom" hide-tabs></tableau-viz>
   </section>
 
   <footer>
